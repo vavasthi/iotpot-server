@@ -1,0 +1,45 @@
+
+buildNumber.properties
+/mainapp/buildNumber.properties
+/encodings.xml
+/misc.xml
+/modules.xml
+/vcs.xml
+/compiler.xml
+/uiDesigner.xml
+/test-suite/*.txt
+/queue-interconnect/target
+
+/logs
+/pojos/target
+/mainapp/target
+/job-scheduler/target
+/job-runner/target
+/communication-interface/target
+/aws-interface/target
+target
+*.class
+*.log
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+# IntelliJ Files
+/.idea
+/.idea/atlassian-ide-plugin.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+*.iml
+
+
+/server-certs/*
+/tmp/*
