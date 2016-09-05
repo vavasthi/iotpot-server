@@ -9,7 +9,7 @@
 package com.iotpot.server.util;
 
 import com.google.common.base.Optional;
-import com.iotpot.server.security.token.H2OTokenPrincipal;
+import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 
 /**
  * Created by vinay on 2/12/16.
@@ -25,11 +25,11 @@ public class IoTPotUtils {
     return "<AUTH_TOKEN>" + authToken + "</AUTH_TOKEN>";
   }
 
-  public static H2OTokenPrincipal.TOKEN_TYPE getTokenType(Optional<String> tokenTypeStr) {
+  public static IoTPotTokenPrincipal.TOKEN_TYPE getTokenType(Optional<String> tokenTypeStr) {
 
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = H2OTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN;
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN;
     if (tokenTypeStr.isPresent()) {
-      tokenType = H2OTokenPrincipal.TOKEN_TYPE.createFromString(tokenTypeStr.get());
+      tokenType = IoTPotTokenPrincipal.TOKEN_TYPE.createFromString(tokenTypeStr.get());
     }
     return tokenType;
   }

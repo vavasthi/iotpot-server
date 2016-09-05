@@ -6,7 +6,7 @@ import com.google.common.base.Optional;
 /**
  * Created by vinay on 2/3/16.
  */
-public class H2OTokenPrincipal extends H2OPrincipal {
+public class IoTPotTokenPrincipal extends IoTPotPrincipal {
 
 
   public enum TOKEN_TYPE {
@@ -37,12 +37,12 @@ public class H2OTokenPrincipal extends H2OPrincipal {
       return value;
     }
   }
-  public H2OTokenPrincipal(Optional<String> remoteAddr,
-                           Optional<String> applicationId,
-                           Optional<String> tenant,
-                           String name,
-                           Optional<String> token,
-                           TOKEN_TYPE tokenType) {
+  public IoTPotTokenPrincipal(Optional<String> remoteAddr,
+                              Optional<String> applicationId,
+                              Optional<String> tenant,
+                              String name,
+                              Optional<String> token,
+                              TOKEN_TYPE tokenType) {
     super(remoteAddr, applicationId, tenant, Optional.fromNullable(name));
     this.token = token;
     this.tokenType = tokenType;
@@ -71,7 +71,7 @@ public class H2OTokenPrincipal extends H2OPrincipal {
 
   @Override
   public String toString() {
-    return "H2OTokenPrincipal{" +
+    return "IoTPotTokenPrincipal{" +
         "token=" + token +
         ", tokenType=" + tokenType +
         "} " + super.toString();

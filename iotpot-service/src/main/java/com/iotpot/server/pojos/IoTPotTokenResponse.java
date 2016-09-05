@@ -3,9 +3,9 @@ package com.iotpot.server.pojos;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 import com.iotpot.server.serializers.IoTPotDateTimeDeserializer;
 import com.iotpot.server.serializers.IoTPotDateTimeSerializer;
-import com.iotpot.server.security.token.H2OTokenPrincipal;
 import org.joda.time.DateTime;
 
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -19,7 +19,7 @@ public class IoTPotTokenResponse implements Serializable {
 
   @JsonProperty
   private String authToken;
-  private H2OTokenPrincipal.TOKEN_TYPE tokenType;
+  private IoTPotTokenPrincipal.TOKEN_TYPE tokenType;
   private DataCenter dataCenter;
   @JsonSerialize(using = IoTPotDateTimeSerializer.class)
   @JsonDeserialize(using = IoTPotDateTimeDeserializer.class)
@@ -30,7 +30,7 @@ public class IoTPotTokenResponse implements Serializable {
   }
 
   public IoTPotTokenResponse(String authToken,
-                             H2OTokenPrincipal.TOKEN_TYPE tokenType,
+                             IoTPotTokenPrincipal.TOKEN_TYPE tokenType,
                              DataCenter dataCenter,
                              DateTime expiry,
                              Collection<IoTPotRole> ioTPotRoles) throws DatatypeConfigurationException {
@@ -49,11 +49,11 @@ public class IoTPotTokenResponse implements Serializable {
     this.authToken = authToken;
   }
 
-  public H2OTokenPrincipal.TOKEN_TYPE getTokenType() {
+  public IoTPotTokenPrincipal.TOKEN_TYPE getTokenType() {
     return tokenType;
   }
 
-  public void setTokenType(final H2OTokenPrincipal.TOKEN_TYPE tokenType) {
+  public void setTokenType(final IoTPotTokenPrincipal.TOKEN_TYPE tokenType) {
     this.tokenType = tokenType;
   }
 

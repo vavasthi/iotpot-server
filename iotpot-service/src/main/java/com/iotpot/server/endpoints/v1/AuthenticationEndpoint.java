@@ -16,7 +16,7 @@ import com.iotpot.server.pojos.constants.IoTPotConstants;
 import com.iotpot.server.common.exception.MismatchedCredentialHeaderAndAuthException;
 import com.iotpot.server.common.caching.DeviceCacheService;
 import com.iotpot.server.common.caching.TenantCacheService;
-import com.iotpot.server.security.token.H2OTokenPrincipal;
+import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 import com.iotpot.server.service.IoTPotTokenService;
 import com.iotpot.server.util.IoTPotUtils;
 import org.joda.time.DateTime;
@@ -76,7 +76,7 @@ public class AuthenticationEndpoint extends BaseEndpoint {
     Optional<String> tokenTypeStr = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_TOKEN_TYPE_HEADER);
     Optional<String> remoteAddr = Optional.fromNullable(httpRequest.getRemoteAddr());
     Optional<String> applicationId = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_APPLICATION_ID_HEADER);
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
     try {
 
       IoTPotUsernameAndTokenResponse utResponse
@@ -100,7 +100,7 @@ public class AuthenticationEndpoint extends BaseEndpoint {
     Optional<String> tokenTypeStr = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_TOKEN_TYPE_HEADER);
     Optional<String> remoteAddr = Optional.fromNullable(httpRequest.getRemoteAddr());
     Optional<String> applicationId = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_APPLICATION_ID_HEADER);
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
     try {
 
       IoTPotUsernameAndTokenResponse utResponse
@@ -126,10 +126,10 @@ public class AuthenticationEndpoint extends BaseEndpoint {
     Optional<String> tokenTypeStr = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_TOKEN_TYPE_HEADER);
     Optional<String> remoteAddr = Optional.fromNullable(httpRequest.getRemoteAddr());
     Optional<String> applicationId = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_APPLICATION_ID_HEADER);
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
     try {
 
-      if (tokenType.equals(H2OTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN)) {
+      if (tokenType.equals(IoTPotTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN)) {
 
         DeviceRegistrationTempAuthToken deviceRegistrationTempAuthToken
         = deviceRegistrationTempAuthTokenCacheService.findByTempAuthToken(token.get());
@@ -159,7 +159,7 @@ public class AuthenticationEndpoint extends BaseEndpoint {
     Optional<String> tokenTypeStr = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_TOKEN_TYPE_HEADER);
     Optional<String> remoteAddr = Optional.fromNullable(httpRequest.getRemoteAddr());
     Optional<String> applicationId = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_APPLICATION_ID_HEADER);
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
     try {
 
       Tenant t = tenantCacheService.findByDiscriminator(tenant);
@@ -175,7 +175,7 @@ public class AuthenticationEndpoint extends BaseEndpoint {
           = new IoTPotUsernameAndTokenResponse(t.getDiscriminator(),
           account.getName(),
           new IoTPotTokenResponse(tempAuthToken.getTempAuthToken(),
-              H2OTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN,
+              IoTPotTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN,
               account.getDataCenter(),
                   new DateTime(new Date().getTime() + IoTPotConstants.HALF_HOUR * 1000), account.getIoTPotRoles()));
       IoTPotTokenResponse tokenResponse = utResponse.getResponse();
@@ -197,7 +197,7 @@ public class AuthenticationEndpoint extends BaseEndpoint {
     Optional<String> tokenTypeStr = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_TOKEN_TYPE_HEADER);
     Optional<String> remoteAddr = Optional.fromNullable(httpRequest.getRemoteAddr());
     Optional<String> applicationId = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_APPLICATION_ID_HEADER);
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
     try {
 
       IoTPotUsernameAndTokenResponse utResponse

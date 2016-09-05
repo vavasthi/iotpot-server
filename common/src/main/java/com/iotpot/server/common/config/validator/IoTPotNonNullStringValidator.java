@@ -8,7 +8,7 @@
 
 package com.iotpot.server.common.config.validator;
 
-import com.iotpot.server.common.annotations.H2ONonNullString;
+import com.iotpot.server.common.annotations.IoTPotNonNullString;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -16,24 +16,24 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * Created by vinay on 3/15/16.
  */
-public class H2ONonNullStringValidator implements ConstraintValidator<H2ONonNullString, String> {
+public class IoTPotNonNullStringValidator implements ConstraintValidator<IoTPotNonNullString, String> {
 
-  private H2ONonNullString h2ONonNullString;
+  private IoTPotNonNullString ioTPotNonNullString;
   @Override
-  public void initialize(final H2ONonNullString h2ONonNullString) {
-    this.h2ONonNullString = h2ONonNullString;
+  public void initialize(final IoTPotNonNullString ioTPotNonNullString) {
+    this.ioTPotNonNullString = ioTPotNonNullString;
   }
 
   @Override
   public boolean isValid(final String s, final ConstraintValidatorContext constraintValidatorContext) {
 
     if (s == null) {
-      return h2ONonNullString.nullAllowed();
+      return ioTPotNonNullString.nullAllowed();
     }
     if (s.contains("<") || s.contains("<")) {
       return false;
     }
-    if (s.length() >= h2ONonNullString.min() && s.length() <= h2ONonNullString.max()) {
+    if (s.length() >= ioTPotNonNullString.min() && s.length() <= ioTPotNonNullString.max()) {
       return true;
     }
     return false;

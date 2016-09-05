@@ -17,8 +17,8 @@ import com.iotpot.server.common.exception.MismatchedCredentialHeaderAndAuthExcep
 import com.iotpot.server.common.caching.TenantCacheService;
 import com.iotpot.server.pojos.*;
 import com.iotpot.server.pojos.constants.IoTPotConstants;
-import com.iotpot.server.security.token.H2OPrincipal;
-import com.iotpot.server.security.token.H2OTokenPrincipal;
+import com.iotpot.server.security.token.IoTPotPrincipal;
+import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 import com.iotpot.server.service.AccountService;
 import com.iotpot.server.service.IoTPotTokenService;
 import com.iotpot.server.util.IoTPotUtils;
@@ -99,7 +99,7 @@ public class IoTPotAuthenticationFilter extends GenericFilterBean {
     Optional<String> basicAuth = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_AUTHORIZATION_HEADER);
     Optional<String> remoteAddr = Optional.fromNullable(httpRequest.getRemoteAddr());
     Optional<String> applicationId = getOptionalHeader(httpRequest, IoTPotConstants.AUTH_APPLICATION_ID_HEADER);
-    H2OTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
+    IoTPotTokenPrincipal.TOKEN_TYPE tokenType = IoTPotUtils.getTokenType(tokenTypeStr);
     if(!applicationId.isPresent()) {
 
       throw new MismatchedCredentialHeaderAndAuthException("Application Id is not provided as header for authentication.");
@@ -123,7 +123,7 @@ public class IoTPotAuthenticationFilter extends GenericFilterBean {
     boolean tokenBasedAuthentication = true;
     if (token.isPresent() &&
         tenant.isPresent() &&
-        !tokenType.equals(H2OTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN)) {
+        !tokenType.equals(IoTPotTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN)) {
       tokenBasedAuthentication = true;
     }
     else if (remoteAddr.isPresent() && tenant.isPresent() && username.isPresent() && password.isPresent()) {
@@ -316,7 +316,7 @@ public class IoTPotAuthenticationFilter extends GenericFilterBean {
                                                                   Optional<String> username,
                                                                   Optional<String> password) {
     UsernamePasswordAuthenticationToken requestAuthentication
-        = new UsernamePasswordAuthenticationToken(new H2OPrincipal(remoteAddr, applicationId, tenant, username), password);
+        = new UsernamePasswordAuthenticationToken(new IoTPotPrincipal(remoteAddr, applicationId, tenant, username), password);
     return tryToAuthenticate(requestAuthentication);
   }
 
@@ -325,7 +325,7 @@ public class IoTPotAuthenticationFilter extends GenericFilterBean {
                                           Optional<String> tenant,
                                           String username,
                                           Optional<String> token,
-                                          H2OTokenPrincipal.TOKEN_TYPE tokenType) {
+                                          IoTPotTokenPrincipal.TOKEN_TYPE tokenType) {
 
     Authentication resultOfAuthentication = tryToAuthenticateWithToken(remoteAddr,
             applicationId,
@@ -341,9 +341,9 @@ public class IoTPotAuthenticationFilter extends GenericFilterBean {
                                                     Optional<String> tenant,
                                                     String username,
                                                     Optional<String> token,
-                                                    H2OTokenPrincipal.TOKEN_TYPE tokenType) {
+                                                    IoTPotTokenPrincipal.TOKEN_TYPE tokenType) {
     PreAuthenticatedAuthenticationToken requestAuthentication
-        = new PreAuthenticatedAuthenticationToken(new H2OTokenPrincipal(remoteAddr,
+        = new PreAuthenticatedAuthenticationToken(new IoTPotTokenPrincipal(remoteAddr,
             applicationId,
         tenant,
         username,

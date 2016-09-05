@@ -11,6 +11,7 @@ package com.iotpot.server.common;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import redis.clients.jedis.JedisPoolConfig;
@@ -19,34 +20,32 @@ import redis.clients.jedis.JedisPoolConfig;
  * Created by vinay on 7/27/16.
  */
 @Configuration
-public class H2ODevicesRedisConfiguration {
+public class IoTPotRedisConfiguration {
     private
-    @Value("${redis.devices.host:localhost}")
+    @Value("${redis.host}")
     String redisHost;
     private
-    @Value("${redis.devices.readreplica:localhost}")
+    @Value("${redis.readreplica}")
     String redisReadReplica;
     private
-    @Value("${redis.devices.port:6379}")
+    @Value("${redis.port}")
     int redisPort;
-    private
-    @Value("${redis.devices.password:redis123}")
-    String redisPassword;
-    @Value("${redis.devices.database:1}")
+    @Value("${redis.database}")
     private int redisDatabase;
-    @Value("${redis.devices.pool.maxIdle:20}")
+    @Value("${redis.pool.maxIdle:20}")
     private int maxIdle;
     private
-    @Value("${redis.devices.pool.minIdle:5}")
+    @Value("${redis.pool.minIdle:5}")
     int minIdle;
     private
-    @Value("${redis.devices.pool.maxTotal:2000}")
+    @Value("${redis.pool.maxTotal:2000}")
     int maxTotal;
     private
-    @Value("${redis.devices.pool.maxWaitMillis:30000}")
+    @Value("${redis.pool.maxWaitMillis:30000}")
     int maxWaitMillis;
     @Bean
-    JedisConnectionFactory jedisDevicesConnectionFactory() {
+    @Primary
+    JedisConnectionFactory jedisConnectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory();
         factory.setHostName(redisHost);
         factory.setPort(redisPort);
@@ -61,15 +60,16 @@ public class H2ODevicesRedisConfiguration {
         return factory;
     }
 
-    @Bean(name = "redisDevicesTemplate")
-    public RedisTemplate<Object, Object> redisDevicesTemplate() {
+    @Bean(name = "redisTemplate")
+    @Primary
+    public RedisTemplate<Object, Object> redisTemplate() {
         RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<Object, Object>();
-        redisTemplate.setConnectionFactory(jedisDevicesConnectionFactory());
+        redisTemplate.setConnectionFactory(jedisConnectionFactory());
         return redisTemplate;
     }
 
     @Bean
-    JedisConnectionFactory jedisReadReplicaDevicesConnectionFactory() {
+    JedisConnectionFactory jedisReadReplicaConnectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory();
         factory.setHostName(redisReadReplica);
         factory.setPort(redisPort);
@@ -84,10 +84,10 @@ public class H2ODevicesRedisConfiguration {
         return factory;
     }
 
-    @Bean(name = "redisDevicesReadReplicaUsersTemplate")
-    public RedisTemplate<Object, Object> redisDevicesReadReplicaTemplate() {
+    @Bean(name = "redisReadReplicaTemplate")
+    public RedisTemplate<Object, Object> redisReadReplicaTemplate() {
         RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<Object, Object>();
-        redisTemplate.setConnectionFactory(jedisReadReplicaDevicesConnectionFactory());
+        redisTemplate.setConnectionFactory(jedisReadReplicaConnectionFactory());
         return redisTemplate;
     }
 

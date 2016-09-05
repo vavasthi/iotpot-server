@@ -1,7 +1,7 @@
 package com.iotpot.server.security.provider;
 
 import com.iotpot.server.pojos.IoTPotTokenResponse;
-import com.iotpot.server.security.token.H2OTokenPrincipal;
+import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 import com.iotpot.server.service.IoTPotTokenService;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -29,7 +29,7 @@ public class IoTPotTokenAuthenticationProvider implements AuthenticationProvider
 
   @Override
   public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-    H2OTokenPrincipal principal = (H2OTokenPrincipal)authentication.getPrincipal();
+    IoTPotTokenPrincipal principal = (IoTPotTokenPrincipal)authentication.getPrincipal();
     logger.info("Called authenticated " + principal.toString());
     if (!principal.isValid()) {
       throw new BadCredentialsException("Invalid token");

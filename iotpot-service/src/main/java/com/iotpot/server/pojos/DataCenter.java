@@ -8,7 +8,7 @@
 
 package com.iotpot.server.pojos;
 
-import com.iotpot.server.common.annotations.H2OUrlString;
+import com.iotpot.server.common.annotations.IoTPotUrlString;
 import org.joda.time.DateTime;
 
 import java.util.UUID;
@@ -119,11 +119,17 @@ public class DataCenter extends Base {
         this.userCount = userCount;
     }
 
-    private @H2OUrlString String identityURL;
-    private @H2OUrlString String apiEndpointURL;
-    private @H2OUrlString String csEndpointURL;
-    private @H2OUrlString String stunURL;
-    private @H2OUrlString String mqttURL;
-    private @H2OUrlString String ntpURL;
+    private @IoTPotUrlString
+    String identityURL;
+    private @IoTPotUrlString
+    String apiEndpointURL;
+    private @IoTPotUrlString
+    String csEndpointURL;
+    private @IoTPotUrlString
+    String stunURL;
+    private @IoTPotUrlString
+    String mqttURL;
+    private @IoTPotUrlString
+    String ntpURL;
     private Long userCount;
 }

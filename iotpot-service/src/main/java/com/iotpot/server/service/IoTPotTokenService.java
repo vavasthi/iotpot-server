@@ -14,7 +14,7 @@ import com.iotpot.server.common.exception.TokenExpiredException;
 import com.iotpot.server.common.exception.UnauthorizedException;
 import com.iotpot.server.pojos.*;
 import com.iotpot.server.mapper.AccountMapper;
-import com.iotpot.server.security.token.H2OTokenPrincipal;
+import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 import com.iotpot.server.pojos.IoTPotRole;
 import org.eclipse.jetty.http.HttpStatus;
 import org.joda.time.DateTime;
@@ -74,16 +74,16 @@ public class IoTPotTokenService {
                                                  String remoteAddr,
                                                  String applicationId,
                                                  String authToken,
-                                                 H2OTokenPrincipal.TOKEN_TYPE tokenType)
+                                                 IoTPotTokenPrincipal.TOKEN_TYPE tokenType)
           throws DatatypeConfigurationException {
 
-    if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.APP_TOKEN) {
+    if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.APP_TOKEN) {
       return validateAppToken(tenantDiscriminator, remoteAddr, applicationId, authToken);
     }
-    else if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN) {
+    else if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN) {
       return validateTempToken(tenantDiscriminator, remoteAddr, applicationId, authToken);
     }
-    else if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.DEVICE_TOKEN) {
+    else if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.DEVICE_TOKEN) {
       return validateDeviceToken(tenantDiscriminator, remoteAddr, applicationId, authToken);
     }
     throw new BadClientCredentialsException();
@@ -104,13 +104,13 @@ public class IoTPotTokenService {
                                                 String remoteAddr,
                                                 String applicationId,
                                                 String authToken,
-                                                H2OTokenPrincipal.TOKEN_TYPE tokenType)
+                                                IoTPotTokenPrincipal.TOKEN_TYPE tokenType)
           throws DatatypeConfigurationException {
 
-    if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.APP_TOKEN) {
+    if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.APP_TOKEN) {
       return refreshAppToken(tenantDiscriminator, remoteAddr, applicationId, authToken);
     }
-    else if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.DEVICE_TOKEN) {
+    else if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.DEVICE_TOKEN) {
       return refreshDeviceToken(tenantDiscriminator, remoteAddr, applicationId, authToken);
     }
     throw new BadClientCredentialsException();
@@ -140,7 +140,7 @@ public class IoTPotTokenService {
       return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
               account.getName(),
               new IoTPotTokenResponse(authToken,
-                      H2OTokenPrincipal.TOKEN_TYPE.APP_TOKEN,
+                      IoTPotTokenPrincipal.TOKEN_TYPE.APP_TOKEN,
                       account.getDataCenter(),
                       account.getSessionMap().get(applicationId).getExpiry(),
                       account.getIoTPotRoles()));
@@ -163,7 +163,7 @@ public class IoTPotTokenService {
       return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
               tempAuthToken.getAccount().getName(),
               new IoTPotTokenResponse(authToken,
-                      H2OTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN,
+                      IoTPotTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN,
                       tempAuthToken.getAccount().getDataCenter(),
                       tempAuthToken.getAccount().getSessionMap().get(applicationId).getExpiry(),
                       tempAuthToken.getAccount().getIoTPotRoles()));
@@ -187,7 +187,7 @@ public class IoTPotTokenService {
       return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
               account.getName(),
               new IoTPotTokenResponse(authToken,
-                      H2OTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN,
+                      IoTPotTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN,
                       account.getDataCenter(),
                       appliance.getSession().getExpiry(),
                       appliance.getIoTPotRoles()));
@@ -248,7 +248,7 @@ public class IoTPotTokenService {
     return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
             username,
             new IoTPotTokenResponse(account.getSessionMap().get(applicationId).getAuthToken(),
-                    H2OTokenPrincipal.TOKEN_TYPE.APP_TOKEN,
+                    IoTPotTokenPrincipal.TOKEN_TYPE.APP_TOKEN,
                     account.getDataCenter(),
                     account.getSessionMap().get(applicationId).getExpiry(),
                     account.getIoTPotRoles()));
@@ -266,7 +266,7 @@ public class IoTPotTokenService {
     return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
             account.getName(),
             new IoTPotTokenResponse(appliance.getSession().getAuthToken(),
-                    H2OTokenPrincipal.TOKEN_TYPE.APP_TOKEN,
+                    IoTPotTokenPrincipal.TOKEN_TYPE.APP_TOKEN,
                     account.getDataCenter(),
                     appliance.getSession().getExpiry(),
                     account.getIoTPotRoles()));
@@ -276,34 +276,34 @@ public class IoTPotTokenService {
   public IoTPotUsernameAndTokenResponse deleteToken(String tenantDiscriminator,
                                                     UUID id,
                                                     String token,
-                                                    H2OTokenPrincipal.TOKEN_TYPE tokenType)
+                                                    IoTPotTokenPrincipal.TOKEN_TYPE tokenType)
           throws DatatypeConfigurationException {
 
     Tenant tenant = tenantCacheService.findByDiscriminator(tenantDiscriminator);
-    if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.APP_TOKEN) {
+    if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.APP_TOKEN) {
 
       Account account = accountCacheService.deleteToken(tenant, id);
       return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
               account.getName(),
               new IoTPotTokenResponse("",
-                      H2OTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
+                      IoTPotTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
                       null,
                       new DateTime(),
                       account.getIoTPotRoles()));
     }
-    else if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.DEVICE_TOKEN) {
+    else if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.DEVICE_TOKEN) {
 
       Appliance appliance = deviceCacheService.deleteToken(id);
       Account account = accountCacheService.findOne(appliance.getAccountId());
       return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
               account.getName(),
               new IoTPotTokenResponse("",
-                      H2OTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
+                      IoTPotTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
                       null,
                       new DateTime(),
                       new ArrayList<IoTPotRole>()));
     }
-    else if (tokenType == H2OTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN) {
+    else if (tokenType == IoTPotTokenPrincipal.TOKEN_TYPE.TEMP_TOKEN) {
       Appliance appliance = deviceCacheService.findOne(id);
       if (appliance != null) {
 
@@ -314,7 +314,7 @@ public class IoTPotTokenService {
         return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
                 account.getName(),
                 new IoTPotTokenResponse("",
-                        H2OTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
+                        IoTPotTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
                         null,
                         new DateTime(),
                         new ArrayList<IoTPotRole>()));
@@ -332,7 +332,7 @@ public class IoTPotTokenService {
     return new IoTPotUsernameAndTokenResponse(tenantDiscriminator,
             account.getName(),
             new IoTPotTokenResponse("",
-                    H2OTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
+                    IoTPotTokenPrincipal.TOKEN_TYPE.UNKNOWN_TOKEN,
                     null,
                     new DateTime(),
                     account.getIoTPotRoles()));

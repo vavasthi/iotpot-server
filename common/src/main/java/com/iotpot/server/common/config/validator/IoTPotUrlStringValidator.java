@@ -8,7 +8,7 @@
 
 package com.iotpot.server.common.config.validator;
 
-import com.iotpot.server.common.annotations.H2OUrlString;
+import com.iotpot.server.common.annotations.IoTPotUrlString;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -18,11 +18,11 @@ import java.net.URL;
 /**
  * Created by vinay on 3/15/16.
  */
-public class H2OUrlStringValidator implements ConstraintValidator<H2OUrlString, String> {
+public class IoTPotUrlStringValidator implements ConstraintValidator<IoTPotUrlString, String> {
 
-  private H2OUrlString urlString;
+  private IoTPotUrlString urlString;
   @Override
-  public void initialize(final H2OUrlString urlString) {
+  public void initialize(final IoTPotUrlString urlString) {
     this.urlString = urlString;
   }
 

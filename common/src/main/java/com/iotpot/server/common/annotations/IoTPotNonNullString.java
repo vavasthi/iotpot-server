@@ -8,7 +8,7 @@
 
 package com.iotpot.server.common.annotations;
 
-import com.iotpot.server.common.config.validator.H2OUrlStringValidator;
+import com.iotpot.server.common.config.validator.IoTPotNonNullStringValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -17,13 +17,16 @@ import java.lang.annotation.*;
 /**
  * Created by vinay on 3/15/16.
  */
-@Constraint(validatedBy = H2OUrlStringValidator.class)
+@Constraint(validatedBy = IoTPotNonNullStringValidator.class)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(value = RetentionPolicy.RUNTIME)
 @Documented
-public @interface H2OUrlString {
+public @interface IoTPotNonNullString {
 
-  String message() default "Invalid URL.";
+  int min() default Integer.MIN_VALUE;
+  int max() default Integer.MAX_VALUE;
+  boolean nullAllowed() default true;
+  String message() default "Invalid string value";
   Class<?>[] groups() default {};
   Class<? extends Payload>[] payload() default {};
 }

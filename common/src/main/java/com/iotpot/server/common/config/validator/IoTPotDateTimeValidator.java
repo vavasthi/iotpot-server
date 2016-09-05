@@ -8,7 +8,7 @@
 
 package com.iotpot.server.common.config.validator;
 
-import com.iotpot.server.common.annotations.H2ODateTime;
+import com.iotpot.server.common.annotations.IoTPotDateTime;
 import org.apache.log4j.Logger;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -19,13 +19,13 @@ import javax.validation.ConstraintValidatorContext;
 /**
  * Created by nikhilvs on 16/06/16.
  */
-public class H2ODateTimeValidator implements ConstraintValidator<H2ODateTime, String> {
+public class IoTPotDateTimeValidator implements ConstraintValidator<IoTPotDateTime, String> {
 
   private Logger logger = Logger.getLogger(GenderTypeValidator.class);
-  private H2ODateTime h2ODateTime;
+  private IoTPotDateTime ioTPotDateTime;
   @Override
-  public void initialize(final H2ODateTime h2ODateTime) {
-    this.h2ODateTime = h2ODateTime;
+  public void initialize(final IoTPotDateTime ioTPotDateTime) {
+    this.ioTPotDateTime = ioTPotDateTime;
   }
 
   @Override
@@ -33,8 +33,8 @@ public class H2ODateTimeValidator implements ConstraintValidator<H2ODateTime, St
     try {
 
       if(s!=null) {
-          logger.info(" s :" + s + " h2oDateTime : " + h2ODateTime.dateTimePattern());
-          DateTimeFormatter formatter = DateTimeFormat.forPattern(h2ODateTime.dateTimePattern());
+          logger.info(" s :" + s + " h2oDateTime : " + ioTPotDateTime.dateTimePattern());
+          DateTimeFormatter formatter = DateTimeFormat.forPattern(ioTPotDateTime.dateTimePattern());
           formatter.parseDateTime(s);
       }
       return true;

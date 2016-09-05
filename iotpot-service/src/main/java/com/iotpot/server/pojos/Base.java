@@ -13,7 +13,7 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.iotpot.server.common.annotations.H2ONonNullString;
+import com.iotpot.server.common.annotations.IoTPotNonNullString;
 import com.iotpot.server.serializers.IoTPotDateTimeDeserializer;
 import com.iotpot.server.serializers.IoTPotDateTimeSerializer;
 import org.joda.time.DateTime;
@@ -130,5 +130,5 @@ public class Base implements Serializable {
   private DateTime updatedAt;
   private String createdBy;
   private String updatedBy;
-  private @H2ONonNullString(min = 5, max = 255, nullAllowed = false) String name;
+  private @IoTPotNonNullString(min = 5, max = 255, nullAllowed = false) String name;
 }

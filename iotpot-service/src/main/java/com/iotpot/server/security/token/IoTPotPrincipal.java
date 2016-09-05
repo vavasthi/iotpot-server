@@ -8,12 +8,12 @@ import java.security.Principal;
 /**
  * Created by vinay on 2/3/16.
  */
-public class H2OPrincipal implements Principal {
+public class IoTPotPrincipal implements Principal {
 
-    public H2OPrincipal(Optional<String> remoteAddr,
-                        Optional<String> applicationId,
-                        Optional<String> tenant,
-                        Optional<String> name) {
+    public IoTPotPrincipal(Optional<String> remoteAddr,
+                           Optional<String> applicationId,
+                           Optional<String> tenant,
+                           Optional<String> name) {
         this.name = name;
         this.applicationId = applicationId;
         this.tenant = tenant;

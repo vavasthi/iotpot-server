@@ -1,6 +1,6 @@
 package com.iotpot.server.security;
 
-import com.iotpot.server.security.token.H2OPrincipal;
+import com.iotpot.server.security.token.IoTPotPrincipal;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,6 +18,6 @@ public class IoTPotAuditorAware implements AuditorAware<String> {
         if (authentication == null || !authentication.isAuthenticated()) {
             return null;
         }
-        return ((H2OPrincipal) authentication.getPrincipal()).getName();
+        return ((IoTPotPrincipal) authentication.getPrincipal()).getName();
     }
 }

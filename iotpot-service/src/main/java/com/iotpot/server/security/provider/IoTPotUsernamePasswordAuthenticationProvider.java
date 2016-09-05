@@ -10,7 +10,7 @@ package com.iotpot.server.security.provider;
 
 import com.google.common.base.Optional;
 import com.iotpot.server.pojos.IoTPotRole;
-import com.iotpot.server.security.token.H2OPrincipal;
+import com.iotpot.server.security.token.IoTPotPrincipal;
 import com.iotpot.server.service.AccountService;
 import com.iotpot.server.pojos.Account;
 import org.apache.log4j.Level;
@@ -50,7 +50,7 @@ public class IoTPotUsernamePasswordAuthenticationProvider implements Authenticat
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException
     {
-        H2OPrincipal principal = (H2OPrincipal)authentication.getPrincipal();
+        IoTPotPrincipal principal = (IoTPotPrincipal)authentication.getPrincipal();
         Optional remoteAddr = principal.getRemoteAddr();
         Optional<String> tenant = principal.getTenant();
         Optional<String> username = principal.getOptionalName();
@@ -88,7 +88,7 @@ public class IoTPotUsernamePasswordAuthenticationProvider implements Authenticat
             account.getIoTPotRoles().forEach(e -> grantedAuthorityList.add(e));
         }
         Authentication auth
-            = new UsernamePasswordAuthenticationToken(new H2OPrincipal(remoteAddr,
+            = new UsernamePasswordAuthenticationToken(new IoTPotPrincipal(remoteAddr,
                 principal.getApplicationId(),
                 tenant,
                 username),

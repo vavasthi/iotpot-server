@@ -8,7 +8,7 @@
 
 package com.iotpot.server.common.annotations;
 
-import com.iotpot.server.common.config.validator.H2ODateTimeValidator;
+import com.iotpot.server.common.config.validator.IoTPotDateTimeValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -17,11 +17,11 @@ import java.lang.annotation.*;
 /**
  * Created by nikhilvs9999 on 16/06/16.
  */
-@Constraint(validatedBy = H2ODateTimeValidator.class)
+@Constraint(validatedBy = IoTPotDateTimeValidator.class)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(value = RetentionPolicy.RUNTIME)
 @Documented
-public @interface H2ODateTime {
+public @interface IoTPotDateTime {
 
     String message() default "Invalid datetime format";
     Class<?>[] groups() default {};
