@@ -23,9 +23,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/4/16.
- */
 @RestController
 @RequestMapping(IoTPotConstants.V1_COMPUTE_REGION_ENDPOINT)
 public class ComputeRegionEndpoint extends BaseEndpoint {

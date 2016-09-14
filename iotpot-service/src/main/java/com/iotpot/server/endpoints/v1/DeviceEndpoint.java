@@ -20,9 +20,6 @@ import java.io.IOException;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/4/16.
- */
 @RestController
 @RequestMapping(IoTPotConstants.V1_DEVICES_ENDPOINT)
 public class DeviceEndpoint extends BaseEndpoint {

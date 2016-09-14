@@ -15,9 +15,6 @@ import javax.validation.ConstraintValidatorContext;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by vinay on 3/15/16.
- */
 public class IoTPotUrlStringValidator implements ConstraintValidator<IoTPotUrlString, String> {
 
   private IoTPotUrlString urlString;

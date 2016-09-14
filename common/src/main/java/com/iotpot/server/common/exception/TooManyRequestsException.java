@@ -1,8 +1,5 @@
 package com.iotpot.server.common.exception;
 
-/**
- * Created by nataraj on 23/8/16.
- */
 public class TooManyRequestsException extends IoTPotBaseException {
 
     /**

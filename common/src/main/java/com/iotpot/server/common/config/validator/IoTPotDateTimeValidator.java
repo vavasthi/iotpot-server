@@ -16,12 +16,9 @@ import org.joda.time.format.DateTimeFormatter;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-/**
- * Created by nikhilvs on 16/06/16.
- */
 public class IoTPotDateTimeValidator implements ConstraintValidator<IoTPotDateTime, String> {
 
-  private Logger logger = Logger.getLogger(GenderTypeValidator.class);
+  private Logger logger = Logger.getLogger(IoTPotDateTimeValidator.class);
   private IoTPotDateTime ioTPotDateTime;
   @Override
   public void initialize(final IoTPotDateTime ioTPotDateTime) {

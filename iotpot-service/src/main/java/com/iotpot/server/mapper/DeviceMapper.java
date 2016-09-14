@@ -21,9 +21,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-/**
- * Created by vinay on 1/8/16.
- */
 @Service
 public final class DeviceMapper {
 

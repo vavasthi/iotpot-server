@@ -3,9 +3,6 @@ package com.iotpot.server.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-/**
- * Created by vavasthi on 5/9/16.
- */
 @Entity
 @Table(name = "workflow_step")
 public class WorkflowStepEntity extends BaseEntity {

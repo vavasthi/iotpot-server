@@ -42,9 +42,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by vavasthi on 17/4/16.
- */
 @Service
 public class AccountCacheDatabaseLoaderService {
 

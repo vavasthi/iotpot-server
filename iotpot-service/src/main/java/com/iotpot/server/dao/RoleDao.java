@@ -16,9 +16,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface RoleDao extends CrudRepository<RoleEntity, UUID> {
 
   @Query("SELECT re from  com.iotpot.server.entity.RoleEntity re where re.name = :name ")

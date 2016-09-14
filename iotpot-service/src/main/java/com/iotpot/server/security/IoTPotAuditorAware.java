@@ -5,10 +5,6 @@ import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-/**
- * Created by vinay on 1/28/16.
- */
-
 public class IoTPotAuditorAware implements AuditorAware<String> {
 
     @Override

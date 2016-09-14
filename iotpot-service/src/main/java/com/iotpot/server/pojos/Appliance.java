@@ -5,9 +5,6 @@ import org.joda.time.DateTime;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by vinay on 3/7/16.
- */
 public class Appliance extends Base {
 
   public Appliance(UUID id,

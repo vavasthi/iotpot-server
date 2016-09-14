@@ -10,7 +10,7 @@ package com.iotpot.server.common.caching;
 
 import com.iotpot.server.pojos.Appliance;
 import com.iotpot.server.pojos.DeviceRegistrationTempAuthToken;
-import com.iotpot.server.common.config.annotations.ORMCache;
+import com.iotpot.server.common.config.annotations.IoTPotCache;
 import com.iotpot.server.cacheloading.ApplianceRegistrationTempAuthTokenCacheDatabaseLoaderService;
 import com.iotpot.server.mapper.DeviceRegistrationTempAuthTokenMapper;
 import com.iotpot.server.pojos.Account;
@@ -23,11 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by vinay on 2/22/16.
- */
 @Service
-@ORMCache(name = IoTPotConstants.IOTPOT_TEMP_AUTH_TOKEN_CACHE_NAME,
+@IoTPotCache(name = IoTPotConstants.IOTPOT_TEMP_AUTH_TOKEN_CACHE_NAME,
         expiry = IoTPotConstants.HALF_HOUR,
         prefix = IoTPotConstants.IOTPOT_TEMP_AUTH_TOKEN_CACHE_PREFIX)
 public class DeviceRegistrationTempAuthTokenCacheService extends AbstractGeneralCacheService {

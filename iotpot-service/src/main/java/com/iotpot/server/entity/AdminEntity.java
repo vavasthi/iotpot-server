@@ -2,9 +2,6 @@ package com.iotpot.server.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @Entity
 @Table(name = "admins",
         indexes = {

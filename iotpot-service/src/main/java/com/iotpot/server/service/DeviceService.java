@@ -22,9 +22,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by vinay on 2/22/16.
- */
 @Service
 public class DeviceService extends AbstractCacheService {
 

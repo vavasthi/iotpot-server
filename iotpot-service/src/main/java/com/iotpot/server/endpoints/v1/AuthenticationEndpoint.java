@@ -34,9 +34,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by vinay on 2/3/16.
- */
 @RestController
 public class AuthenticationEndpoint extends BaseEndpoint {
 

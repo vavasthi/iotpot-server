@@ -16,9 +16,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface ApplianceRegistrationTempAuthTokenDao extends CrudRepository<ApplianceRegistrationTempAuthTokenEntity, UUID> {
 
   @Query("SELECT re from  com.iotpot.server.entity.ApplianceRegistrationTempAuthTokenEntity re where re.tempAuthToken = :tempAuthToken ")

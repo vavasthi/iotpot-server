@@ -14,9 +14,6 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
 
-/**
- * Created by vinay on 3/15/16.
- */
 @Constraint(validatedBy = IoTPotUrlStringValidator.class)
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(value = RetentionPolicy.RUNTIME)

@@ -13,9 +13,6 @@ import com.iotpot.server.common.annotations.IoTPotNonNullString;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-/**
- * Created by vinay on 3/15/16.
- */
 public class IoTPotNonNullStringValidator implements ConstraintValidator<IoTPotNonNullString, String> {
 
   private IoTPotNonNullString ioTPotNonNullString;

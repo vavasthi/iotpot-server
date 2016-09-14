@@ -1,6 +1,6 @@
 package com.iotpot.server.common.caching;
 
-import com.iotpot.server.common.config.annotations.ORMCache;
+import com.iotpot.server.common.config.annotations.IoTPotCache;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.SerializationException;
@@ -20,15 +20,15 @@ public class AbstractCacheService {
 
     protected long getExpiry() {
 
-        return this.getClass().getAnnotation(ORMCache.class).expiry();
+        return this.getClass().getAnnotation(IoTPotCache.class).expiry();
     }
     protected String getPrefix() {
-        return getClass().getAnnotation(ORMCache.class).prefix();
+        return getClass().getAnnotation(IoTPotCache.class).prefix();
     }
     protected void storeObject(RedisTemplate<Object, Object> redisTemplate,
                                final Map<Object, Object> keyValuePairs) {
 
-        String metricName = springProfilesActive + "_STORE_" + getClass().getAnnotation(ORMCache.class).name();
+        String metricName = springProfilesActive + "_STORE_" + getClass().getAnnotation(IoTPotCache.class).name();
         Map<Object, Object> prefixedKeyValuePairs = new HashMap<>();
         for (Map.Entry<Object, Object> e : keyValuePairs.entrySet()) {
             if (e.getKey() != null) {
@@ -45,7 +45,7 @@ public class AbstractCacheService {
     protected void deleteObject(RedisTemplate<Object, Object> redisTemplate,
                                 final List<Object> keys) {
 
-        String metricName = springProfilesActive + "_DELETE_" + getClass().getAnnotation(ORMCache.class).name();
+        String metricName = springProfilesActive + "_DELETE_" + getClass().getAnnotation(IoTPotCache.class).name();
         List<Object> nonNullKeys = new ArrayList<>();
         for (Object o : keys) {
             if (o != null) {
@@ -57,7 +57,7 @@ public class AbstractCacheService {
     protected void deleteKey(RedisTemplate<Object, Object> redisTemplate,
                              final Object key) {
 
-        String metricName = springProfilesActive + "_DELETE_" + getClass().getAnnotation(ORMCache.class).name();
+        String metricName = springProfilesActive + "_DELETE_" + getClass().getAnnotation(IoTPotCache.class).name();
         List<Object> nonNullKeys = new ArrayList<>();
         if (key != null) {
             nonNullKeys.add(new CacheKeyPrefix(getPrefix(), key));
@@ -67,7 +67,7 @@ public class AbstractCacheService {
     protected <T> T get(RedisTemplate<Object, Object> redisReadReplicaTemplate,
                         RedisTemplate<Object, Object> redisTemplate,
                         Object key, Class<T> type) {
-        String metricName = springProfilesActive + "_READ_" + getClass().getAnnotation(ORMCache.class).name();
+        String metricName = springProfilesActive + "_READ_" + getClass().getAnnotation(IoTPotCache.class).name();
         Object value;
         try {
 
@@ -87,7 +87,7 @@ public class AbstractCacheService {
     protected Boolean setIfAbsent(RedisTemplate<Object, Object> redisTemplate,
                                   Object key, Object Value) {
 
-        String metricName = springProfilesActive + "_STORE_IF_ABSENT_" + getClass().getAnnotation(ORMCache.class).name();
+        String metricName = springProfilesActive + "_STORE_IF_ABSENT_" + getClass().getAnnotation(IoTPotCache.class).name();
         Boolean status = redisTemplate.opsForValue().setIfAbsent(new CacheKeyPrefix(getPrefix(), key),Value);
         redisTemplate.expire(new CacheKeyPrefix(getPrefix(), key), getExpiry(), TimeUnit.SECONDS);
         return status;

@@ -11,10 +11,10 @@ package com.iotpot.server.security.filters;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Optional;
 import com.iotpot.server.common.caching.AccountCacheService;
+import com.iotpot.server.common.caching.TenantCacheService;
 import com.iotpot.server.common.enums.Role;
 import com.iotpot.server.common.exception.BadRequestException;
 import com.iotpot.server.common.exception.MismatchedCredentialHeaderAndAuthException;
-import com.iotpot.server.common.caching.TenantCacheService;
 import com.iotpot.server.pojos.*;
 import com.iotpot.server.pojos.constants.IoTPotConstants;
 import com.iotpot.server.security.token.IoTPotPrincipal;
@@ -56,9 +56,6 @@ import java.security.spec.InvalidParameterSpecException;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by vinay on 2/3/16.
- */
 public class IoTPotAuthenticationFilter extends GenericFilterBean {
 
   public static final String TOKEN_SESSION_KEY = "token";

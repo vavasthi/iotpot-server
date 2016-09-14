@@ -6,9 +6,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by vavasthi on 5/9/16.
- */
 @Entity
 @Table(name = "workflow")
 public class WorkflowEntity extends BaseEntity {

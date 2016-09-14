@@ -16,10 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by insdoddaba on 3/7/16.
- */
-
 @Service
 public class AbstractGeneralCacheService extends AbstractCacheService {
 

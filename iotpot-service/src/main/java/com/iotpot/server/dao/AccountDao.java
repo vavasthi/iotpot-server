@@ -17,9 +17,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface AccountDao extends CrudRepository<AccountEntity, UUID> {
 
   @Query("SELECT ae from  com.iotpot.server.entity.AccountEntity ae where ae.id = :id or ae.email = :email")

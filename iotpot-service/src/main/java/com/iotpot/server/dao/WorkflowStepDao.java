@@ -14,9 +14,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface WorkflowStepDao extends CrudRepository<WorkflowStepEntity, UUID> {
 
 }

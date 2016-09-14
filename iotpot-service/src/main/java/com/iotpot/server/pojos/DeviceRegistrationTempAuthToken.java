@@ -4,9 +4,6 @@ import org.joda.time.DateTime;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 3/4/16.
- */
 public class DeviceRegistrationTempAuthToken extends Base {
 
   public DeviceRegistrationTempAuthToken(final String deviceRegistrationId, final String tempAuthToken, final DateTime expiry) {

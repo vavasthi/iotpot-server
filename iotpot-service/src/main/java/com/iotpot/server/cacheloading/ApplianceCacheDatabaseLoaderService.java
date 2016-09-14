@@ -26,9 +26,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
-/**
- * Created by vavasthi on 17/4/16.
- */
 @Service
 public class ApplianceCacheDatabaseLoaderService extends AbstractDatabaseLoaderService {
 

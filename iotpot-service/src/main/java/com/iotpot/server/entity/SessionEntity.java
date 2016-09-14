@@ -15,9 +15,6 @@ import javax.persistence.*;
 import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.Date;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @Entity
 @Table(name = "sessions")
 public class SessionEntity extends BaseEntity {

@@ -27,9 +27,6 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * Created by vinay on 1/4/16.
- */
 @RestController
 @RequestMapping(IoTPotConstants.V1_WORKFLOW_ENDPOINT)
 public class WorkflowEndpoint extends BaseEndpoint {

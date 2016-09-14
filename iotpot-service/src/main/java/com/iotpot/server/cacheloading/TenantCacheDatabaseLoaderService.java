@@ -22,9 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 
-/**
- * Created by vavasthi on 17/4/16.
- */
 @Service
 public class TenantCacheDatabaseLoaderService {
 

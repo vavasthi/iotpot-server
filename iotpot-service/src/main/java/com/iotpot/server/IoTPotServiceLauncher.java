@@ -10,10 +10,10 @@ package com.iotpot.server;
 
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.datatype.joda.JodaModule;
-import com.iotpot.server.security.provider.IoTPotAuditingDateTimeProvider;
-import com.iotpot.server.service.DateTimeService;
 import com.iotpot.server.dao.TenantDao;
 import com.iotpot.server.security.IoTPotAuditorAware;
+import com.iotpot.server.security.provider.IoTPotAuditingDateTimeProvider;
+import com.iotpot.server.service.DateTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,9 +32,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.logging.Logger;
 
-/**
- * Created by vinay on 1/8/16.
- */
 @SpringBootApplication
 @Configuration
 @ComponentScan(basePackages = {

@@ -11,9 +11,6 @@ import org.joda.time.format.ISODateTimeFormat;
 
 import java.io.IOException;
 
-/**
- * Created by vinay on 3/3/16.
- */
 public class IoTPotDateTimeSerializer extends JsonSerializer<DateTime> {
 
   private static DateTimeFormatter formatter = ISODateTimeFormat.dateTime();

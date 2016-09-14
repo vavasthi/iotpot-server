@@ -29,9 +29,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-/**
- * Created by vinay on 2/3/16.
- */
 @Service
 public class IoTPotTokenService {
 

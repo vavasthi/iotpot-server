@@ -16,9 +16,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface ApplianceDao extends CrudRepository<ApplianceEntity, UUID> {
 
   @Query("SELECT de from  com.iotpot.server.entity.ApplianceEntity de where de.deviceId = :deviceId")

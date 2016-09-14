@@ -14,9 +14,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-/**
- * Created by vinay on 3/14/16.
- */
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.hubbleconnected.server"} )
 @Import(SwaggerConfiguration.class)

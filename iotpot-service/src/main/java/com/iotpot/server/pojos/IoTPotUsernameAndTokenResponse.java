@@ -10,9 +10,6 @@ package com.iotpot.server.pojos;
 
 import java.io.Serializable;
 
-/**
- * Created by vinay on 2/11/16.
- */
 public class IoTPotUsernameAndTokenResponse implements Serializable {
   public IoTPotUsernameAndTokenResponse(String tenant, String username, IoTPotTokenResponse response) {
     this.username = username;

@@ -15,9 +15,6 @@ import com.iotpot.server.pojos.IoTPotRole;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by vinay on 1/8/16.
- */
 public final class RoleMapper {
 
   public  static Set<IoTPotRole> mapEntitiesIntoDTOs(Iterable<RoleEntity> entities) {

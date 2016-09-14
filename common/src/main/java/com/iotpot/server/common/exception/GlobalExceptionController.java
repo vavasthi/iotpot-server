@@ -28,11 +28,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.persistence.PersistenceException;
 
-/**
- * The type Global exception controller.
- *
- * @author nikhilvs9999
- */
 /*o/.
   This class is responsible of handling all exceptions, like giving proper response back
   to client, whether to log exception or not

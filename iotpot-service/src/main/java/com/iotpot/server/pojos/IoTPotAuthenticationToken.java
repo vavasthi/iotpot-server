@@ -5,9 +5,6 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
-/**
- * Created by vinay on 1/29/16.
- */
 public class IoTPotAuthenticationToken extends AbstractAuthenticationToken {
 
     private static final long serialVersionUID = -1092219614309982278L;

@@ -14,9 +14,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
 
-/**
- * Created by vinay on 2/3/16.
- */
 @Configuration
 public class IoTPotEmbeddedJettyCustomizer {
 

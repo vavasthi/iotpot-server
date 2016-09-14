@@ -29,9 +29,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.InvalidParameterSpecException;
 
-/**
- * Created by vinay on 1/4/16.
- */
 @RestController
 @RequestMapping(IoTPotConstants.V1_SETUP_ENDPOINT)
 public class SetupEndpoint extends BaseEndpoint {

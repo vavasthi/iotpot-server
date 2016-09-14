@@ -6,9 +6,6 @@ import com.iotpot.server.serializers.IoTPotDateTimeDeserializer;
 import com.iotpot.server.serializers.IoTPotDateTimeSerializer;
 import org.joda.time.DateTime;
 
-/**
- * Created by vinay on 3/3/16.
- */
 public class TestDate extends Base {
 
   @JsonSerialize(using = IoTPotDateTimeSerializer.class)

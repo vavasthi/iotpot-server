@@ -3,9 +3,6 @@ package com.iotpot.server.pojos;
 import java.io.Serializable;
 import java.util.UUID;
 
-/**
- * Created by vinay on 3/8/16.
- */
 public class DeviceAuthentication implements Serializable {
 
   public DeviceAuthentication(final UUID accountId, final String deviceRegistrationId) {

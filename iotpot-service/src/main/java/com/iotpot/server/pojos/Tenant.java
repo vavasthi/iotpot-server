@@ -5,9 +5,6 @@ import org.joda.time.DateTime;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/28/16.
- */
 public class Tenant extends Base {
   public Tenant() {
   }

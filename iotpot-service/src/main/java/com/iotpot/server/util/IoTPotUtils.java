@@ -11,9 +11,6 @@ package com.iotpot.server.util;
 import com.google.common.base.Optional;
 import com.iotpot.server.security.token.IoTPotTokenPrincipal;
 
-/**
- * Created by vinay on 2/12/16.
- */
 public class IoTPotUtils {
 
 

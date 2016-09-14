@@ -16,9 +16,6 @@ import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import redis.clients.jedis.JedisPoolConfig;
 
-/**
- * Created by vinay on 7/27/16.
- */
 @Configuration
 public class IoTPotRedisConfiguration {
     private

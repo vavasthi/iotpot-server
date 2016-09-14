@@ -13,9 +13,6 @@ import org.joda.time.DateTime;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/28/16.
- */
 public class DataCenter extends Base {
     public DataCenter() {
     }

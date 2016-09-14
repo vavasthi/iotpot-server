@@ -14,9 +14,6 @@ import org.joda.time.DateTime;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @Entity
 @Table(name = "appliance_reg_temp_auth_tokens",
         uniqueConstraints = {

@@ -20,9 +20,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by vinay on 1/8/16.
- */
 @Service
 public final class SessionMapper {
 

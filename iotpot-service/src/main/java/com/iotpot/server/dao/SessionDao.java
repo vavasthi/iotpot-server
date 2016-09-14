@@ -15,9 +15,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface SessionDao extends CrudRepository<SessionEntity, UUID> {
 
   @Query("SELECT se from  com.iotpot.server.entity.SessionEntity se where se.authToken = :authToken")

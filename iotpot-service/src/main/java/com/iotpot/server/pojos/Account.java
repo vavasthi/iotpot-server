@@ -6,9 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/28/16.
- */
 public class Account extends Base {
   public Account() {
   }

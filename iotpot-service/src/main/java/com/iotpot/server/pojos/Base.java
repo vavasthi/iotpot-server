@@ -21,9 +21,6 @@ import org.joda.time.DateTime;
 import java.io.Serializable;
 import java.util.UUID;
 
-/**
- * Created by vinay on 2/10/16.
- */
 @JsonInclude(Include.NON_NULL)
 public class Base implements Serializable {
   public Base(UUID id, DateTime createdAt, DateTime updatedAt, String createdBy, String updatedBy, String name) {

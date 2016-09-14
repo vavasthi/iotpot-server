@@ -13,7 +13,7 @@ import com.iotpot.server.dao.ApplianceDao;
 import com.iotpot.server.dao.SessionDao;
 import com.iotpot.server.pojos.Appliance;
 import com.iotpot.server.pojos.constants.IoTPotConstants;
-import com.iotpot.server.common.config.annotations.ORMCache;
+import com.iotpot.server.common.config.annotations.IoTPotCache;
 import com.iotpot.server.cacheloading.ApplianceCacheDatabaseLoaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,11 +22,8 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-/**
- * Created by vinay on 2/22/16.
- */
 @Service
-@ORMCache(name = IoTPotConstants.IOTPOT_DEVICE_CACHE_NAME, expiry = IoTPotConstants.SIX_DAYS, prefix = IoTPotConstants.IOTPOT_DEVICE_CACHE_PREFIX)
+@IoTPotCache(name = IoTPotConstants.IOTPOT_DEVICE_CACHE_NAME, expiry = IoTPotConstants.SIX_DAYS, prefix = IoTPotConstants.IOTPOT_DEVICE_CACHE_PREFIX)
 public class DeviceCacheService extends AbstractGeneralCacheService {
 
   @Autowired

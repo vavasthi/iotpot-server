@@ -14,7 +14,7 @@ import com.iotpot.server.dao.TenantDao;
 import com.iotpot.server.entity.DataCenterEntity;
 import com.iotpot.server.pojos.Tenant;
 import com.iotpot.server.pojos.constants.IoTPotConstants;
-import com.iotpot.server.common.config.annotations.ORMCache;
+import com.iotpot.server.common.config.annotations.IoTPotCache;
 import com.iotpot.server.entity.TenantEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,11 +22,8 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-/**
- * Created by vinay on 2/22/16.
- */
 @Service
-@ORMCache(name = IoTPotConstants.IOTPOT_TENANT_CACHE_NAME, expiry = IoTPotConstants.SIX_HOURS, prefix = IoTPotConstants.IOTPOT_TENANT_CACHE_PREFIX)
+@IoTPotCache(name = IoTPotConstants.IOTPOT_TENANT_CACHE_NAME, expiry = IoTPotConstants.SIX_HOURS, prefix = IoTPotConstants.IOTPOT_TENANT_CACHE_PREFIX)
 public class TenantCacheService extends AbstractGeneralCacheService {
 
   @Autowired

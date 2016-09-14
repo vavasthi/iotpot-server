@@ -5,9 +5,6 @@ import com.google.common.base.Optional;
 
 import java.security.Principal;
 
-/**
- * Created by vinay on 2/3/16.
- */
 public class IoTPotPrincipal implements Principal {
 
     public IoTPotPrincipal(Optional<String> remoteAddr,

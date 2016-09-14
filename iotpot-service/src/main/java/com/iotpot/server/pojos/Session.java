@@ -18,9 +18,6 @@ import org.joda.time.DateTime;
 import java.io.Serializable;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
 public class Session implements Serializable {

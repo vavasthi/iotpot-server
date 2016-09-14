@@ -25,9 +25,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/8/16.
- */
 @Service
 public class ComputeRegionService {
 

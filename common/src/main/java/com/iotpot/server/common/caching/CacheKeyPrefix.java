@@ -10,9 +10,6 @@ package com.iotpot.server.common.caching;
 
 import java.io.Serializable;
 
-/**
- * Created by vinay on 5/13/16.
- */
 public class CacheKeyPrefix implements Serializable {
 
   public CacheKeyPrefix(final String prefix, final Object key) {

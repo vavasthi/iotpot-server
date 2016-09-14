@@ -12,9 +12,6 @@ import org.apache.commons.codec.binary.Hex;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 8/9/16.
- */
 public class AbstractDatabaseLoaderService {
 
     public String generateDeviceAuthToken(String deviceRegistrationId) {

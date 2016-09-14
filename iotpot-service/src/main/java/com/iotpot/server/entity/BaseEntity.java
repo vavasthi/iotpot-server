@@ -13,9 +13,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

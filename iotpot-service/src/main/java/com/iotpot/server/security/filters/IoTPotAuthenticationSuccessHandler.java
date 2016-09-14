@@ -21,9 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by vinay on 1/27/16.
- */
 
 public class IoTPotAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
   Logger logger = Logger.getLogger(IoTPotAuthenticationSuccessHandler.class.getName());

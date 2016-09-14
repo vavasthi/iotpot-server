@@ -15,9 +15,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface TenantDao extends CrudRepository<TenantEntity, UUID> {
 
     @Query("SELECT te from  com.iotpot.server.entity.TenantEntity te where te.discriminator = :discriminator")

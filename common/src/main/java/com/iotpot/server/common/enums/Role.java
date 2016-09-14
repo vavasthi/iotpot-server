@@ -13,15 +13,8 @@ package com.iotpot.server.common.enums;
  */
 public enum Role {
     USER("user"), // 0
-    TALK_BACK_USER("talk_back_user"), // 1
-    UPLOAD_SERVER("upload_server"), // 2
-    FW_UPGRADE_USER("fw_upgrade_user"), // 3
-    BP_SERVER("bp_server"), // 4
-    WOWZA_USER("wowza_user"), // 5
-    HELPDESK_AGENT("helpdesk_agent"), // 6
     FACTORY_USER("factory_user"), // 7
     TESTER("tester"), // 8
-    MARKETING_ADMIN("marketing_admin"), // 9
     FW_UPGRADE_ADMIN("fw_upgrade_admin"), // 10
     POLICY_ADMIN("policy_admin"), // 11
     TENANT_ADMIN("tenant_admin"), // 12

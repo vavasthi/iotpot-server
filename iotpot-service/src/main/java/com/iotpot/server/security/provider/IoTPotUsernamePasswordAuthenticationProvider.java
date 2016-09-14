@@ -36,10 +36,6 @@ import java.security.spec.InvalidParameterSpecException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by vinay on 2/3/16.
- */
-
 public class IoTPotUsernamePasswordAuthenticationProvider implements AuthenticationProvider {
 
     public static final String INVALID_BACKEND_ADMIN_CREDENTIALS = "Invalid Backend Admin Credentials";

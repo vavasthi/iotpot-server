@@ -10,7 +10,7 @@ package com.iotpot.server.common.caching;
 
 import com.iotpot.server.common.utils.IoTPotPasswordEncryptionManager;
 import com.iotpot.server.common.utils.IoTPotUUIDPair;
-import com.iotpot.server.common.config.annotations.ORMCache;
+import com.iotpot.server.common.config.annotations.IoTPotCache;
 import com.iotpot.server.common.enums.Role;
 import com.iotpot.server.cacheloading.AccountCacheDatabaseLoaderService;
 import com.iotpot.server.common.utils.IoTPotUUIDStringPair;
@@ -41,11 +41,8 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.InvalidParameterSpecException;
 import java.util.*;
 
-/**
- * Created by vinay on 2/22/16.
- */
 @Service
-@ORMCache(name = IoTPotConstants.IOTPOT_ACCOUNT_CACHE_NAME,
+@IoTPotCache(name = IoTPotConstants.IOTPOT_ACCOUNT_CACHE_NAME,
         expiry = IoTPotConstants.SIX_HOURS,
         prefix = IoTPotConstants.IOTPOT_ACCOUNT_CACHE_PREFIX)
 public class AccountCacheService extends AbstractGeneralCacheService {

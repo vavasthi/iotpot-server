@@ -3,9 +3,6 @@ package com.iotpot.server.security.token;
 
 import com.google.common.base.Optional;
 
-/**
- * Created by vinay on 2/3/16.
- */
 public class IoTPotTokenPrincipal extends IoTPotPrincipal {
 
 

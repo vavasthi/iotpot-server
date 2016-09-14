@@ -7,9 +7,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-/**
- * Created by vavasthi on 5/9/16.
- */
 public class Workflow extends Base {
 
   public Workflow() {

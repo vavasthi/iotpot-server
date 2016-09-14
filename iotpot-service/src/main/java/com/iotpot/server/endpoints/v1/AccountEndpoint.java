@@ -36,9 +36,6 @@ import java.security.spec.InvalidParameterSpecException;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/4/16.
- */
 @RestController
 @RequestMapping(IoTPotConstants.V1_ACCOUNTS_ENDPOINT)
 public class AccountEndpoint extends BaseEndpoint {

@@ -17,9 +17,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by vinay on 2/3/16.
- */
 public class IoTPotTokenAuthenticationProvider implements AuthenticationProvider {
 
   private final static Logger logger = Logger.getLogger(IoTPotTokenAuthenticationProvider.class);

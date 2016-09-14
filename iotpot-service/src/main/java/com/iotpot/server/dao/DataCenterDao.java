@@ -13,9 +13,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
-/**
- * Created by vinay on 1/6/16.
- */
 public interface DataCenterDao extends CrudRepository<DataCenterEntity, UUID> {
 
 }

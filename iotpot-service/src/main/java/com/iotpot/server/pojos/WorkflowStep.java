@@ -1,13 +1,5 @@
 package com.iotpot.server.pojos;
 
-import com.iotpot.server.entity.BaseEntity;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-/**
- * Created by vavasthi on 5/9/16.
- */
 public class WorkflowStep {
 
   public WorkflowStep(String name, String description, Integer duration) {

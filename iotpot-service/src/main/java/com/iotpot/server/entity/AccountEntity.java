@@ -6,9 +6,6 @@ import javax.persistence.*;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @Entity
 @Table(name = "accounts",
     indexes = {

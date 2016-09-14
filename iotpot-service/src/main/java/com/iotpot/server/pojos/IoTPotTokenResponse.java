@@ -12,9 +12,6 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import java.io.Serializable;
 import java.util.Collection;
 
-/**
- * Created by vinay on 2/3/16.
- */
 public class IoTPotTokenResponse implements Serializable {
 
   @JsonProperty

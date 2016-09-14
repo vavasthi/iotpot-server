@@ -4,9 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
-/**
- * Created by vinay on 1/28/16.
- */
 
 @Entity
 @Table(name = "roles",

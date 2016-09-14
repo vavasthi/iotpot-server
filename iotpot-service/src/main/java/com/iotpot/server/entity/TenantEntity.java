@@ -3,9 +3,6 @@ package com.iotpot.server.entity;
 import javax.persistence.*;
 import java.util.Set;
 
-/**
- * Created by vinay on 1/28/16.
- */
 @Entity
 @Table(name = "tenants",
         uniqueConstraints = {
